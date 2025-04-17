@@ -1,22 +1,28 @@
-# library
-
-## COMPULSORY
-### BASIC
+# Lista
+- isalpha
+- isdigit 
+- isalnum 
+- isascii 
+- isprint 
+- strlen
 - memset 
 - bzero 
 - memcpy 
 - memccpy 
 - memmove 
-- memchr 
-- memcmp 
-- strchr 
-- strrchr
 - strlcpy 
 - strlcat 
+- toupper 
+- tolower 
+- strchr 
+- strrchr
+- strncmp 
+- memchr 
+- memcmp
 - strnstr 
-- calloc(malloc)
-- strdup(malloc)
-### ADDITIONAL
+- atoi
+- calloc (malloc)
+- strdup (malloc)
 - ft_substr
 - ft_strjoin
 - ft_strtrim
@@ -27,5 +33,3 @@
 - ft_putstr_fd
 - ft_putendl_fd
 - ft_putnbr_fd
-
-## BONUS

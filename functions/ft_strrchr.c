@@ -12,9 +12,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	while (s)
+	char	*last;
+
+	last = NULL;
+	while (*s)
 	{
 		if (*s == c)
-			return ;
+			last = s;
+		s++;
 	}
+	if (c == '\0')
+		return (s);
+	return (last);
 }
