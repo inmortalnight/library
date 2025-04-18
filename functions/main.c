@@ -45,7 +45,7 @@
     printf("d:ABCD s:AAAA(s) 5, d: %s\n", (char *)ft_memcpy(str, "AAAA", 7));
     printf("d:ABCD s:ABCD(BCD) 4, d: %s\n", (char *)ft_memcpy(str, str+1, 4));
 } */
-int main(void)
+/*int main(void)
 {
     //test_isalpha();
     //test_isdigit();
@@ -58,4 +58,4 @@ int main(void)
     //test_memcpy();
     //test_memmove();
     return (0);
-}
+}*/

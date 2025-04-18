@@ -1,4 +1,4 @@
-NAME = lib
+NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
@@ -13,7 +13,7 @@ RM = rm -f
 
 all: $(NAME)
 %.o: %.c
-	$(CC) = $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 $(NAME): $(OBJ)
