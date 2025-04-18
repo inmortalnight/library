@@ -1,4 +1,6 @@
 # Lista
+
+## Básica
 - isalpha
 - isdigit 
 - isalnum 
@@ -23,6 +25,8 @@
 - atoi
 - calloc (malloc)
 - strdup (malloc)
+
+# Adicional
 - ft_substr
 - ft_strjoin
 - ft_strtrim
@@ -33,3 +37,5 @@
 - ft_putstr_fd
 - ft_putendl_fd
 - ft_putnbr_fd
+
+## Bonus
