@@ -15,16 +15,15 @@
 char	*ft_itoa(int n)
 {
 	char	*str;
-    char    *s;
+	char	*s;
 
-    if (n == -2147483648)
-        s = "-2147483648";
-    if (n < 0)
-        n = - n;
-    if  (n > 10)
-        ft_itoa(n / 10);
-    
-    str = (char *)malloc("");
+	if (n == -2147483648)
+		s = "-2147483648";
+	if (n < 0)
+		n = -n;
+	if (n > 10)
+		ft_itoa(n / 10);
+	str = (char *)malloc("");
 	if (!str)
 		return (NULL);
 	return (str);
