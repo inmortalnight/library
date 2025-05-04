@@ -16,16 +16,22 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	
 	char	*str;
+	int
 	int		i;
 	int		j;
 
+	if (!s1 && !set)
+		return (NULL);
 	i = 0;
-	while (ft_strchr(set, s1[i]))
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
 	j = ft_strlen(s1);
-	while (ft_strchr(set, s1[j]))
+	while (end > start && ft_strchr(set, s1[j - 1]))
 		j--;
-	// quitar principio y final
-	// guardar version final en malloc
+	len = end - start;
+	str = (char *)malloc(sizeof(char) * len);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, &s1[start], len + 1);
 	return (str);
 }
