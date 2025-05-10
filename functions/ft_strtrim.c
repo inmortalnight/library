@@ -14,24 +14,23 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	
 	char	*str;
-	int
-	int		i;
-	int		j;
+	int		len;
+	int		start;
+	int		end;
 
 	if (!s1 && !set)
 		return (NULL);
-	i = 0;
-	while (s1[i] && ft_strchr(set, s1[i]))
-		i++;
-	j = ft_strlen(s1);
-	while (end > start && ft_strchr(set, s1[j - 1]))
-		j--;
-	len = end - start;
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	len = end - start + 1;
 	str = (char *)malloc(sizeof(char) * len);
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, &s1[start], len + 1);
+	ft_strlcpy(str, s1 + start, len);
 	return (str);
 }

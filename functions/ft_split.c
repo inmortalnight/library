@@ -10,63 +10,71 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//crear malloc con el numero de coincidencias c + 1
-//encontrar el c
-//contar cuantas letras son hasta el c
-//guardar posicion de c, actualizar a encontrar el nuevo c
-//repetir
-//crear segundo malloc con el tamaño len de cada repeticion
-//salida por error malloc si falla
-
 #include "libft.h"
 
-static int count_char(const char *s, char c)
+static size_t count_char(const char *s, char c)
 {
-	int count = 0;
+	size_t	count;
+
+	count = 0;
 	while (*s)
 	{
-		if (*s == c)
+		while (*s == c)
+			s++;
+		if (*s)
 			count++;
-		s++;
+		while (*s != c && *s)
+			s++;
 	}
 	return (count);
+}
+
+static char	**ft_free(char **split, size_t num_subs)
+{
+	if (!split)
+		return (NULL);
+	while (num_subs > 0)
+		free(split[--num_subs]);
+	free(split);
+	return (NULL);
+}
+
+static int	fill_result(char const *s, char c, char **res)
+{
+	size_t	i;
+	size_t	j;
+	size_t	start;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			i++;
+		else
+		{
+			start = i;
+			while (s[i] && s[i] != c)
+				i++;
+			res[j] = ft_substr(s, start, i - start);
+			if (!res[j++])
+				return (ft_free(res, j - 1), 0);
+		}
+	}
+	res[j] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	int	i;
-	int start;
-	int	end;
 
 	if (!s)
 		return (NULL);
 	str = (char **)malloc(sizeof(char *) * (count_char(s, c) + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
-	start = -1;
-	end = 0;
-	while (s[end])
-	{
-		if (s[end] == c && end > start)
-		{
-			str[i] = (char *)malloc(sizeof(char) * (end - (start + 1)));
-			if (!str)
-				return (NULL); //deberia ser doble liberacion
-			str[i] = ft_substr(s, start, end - start);
-			i++;
-			start = end + 1;
-		}
-		end++;
-	}
-	if (end > start)
-	{
-		str[i] = ft_substr(s, start, end - start);
-		if (!str[i])
-			return (NULL);
-		i++;
-	}
-	str[i] = NULL;
+	if (!fill_result(s, c, str))
+		return (NULL);
 	return (str);
 }

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*last;
@@ -17,11 +18,11 @@ char	*ft_strrchr(const char *s, int c)
 	last = NULL;
 	while (*s)
 	{
-		if (*s == c)
-			last = s;
+		if (*s == (char)c)
+			last = (char *)s;
 		s++;
 	}
-	if (c == '\0')
-		return (s);
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (last);
 }
