@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t count_char(const char *s, char c)
+static size_t	count_char(const char *s, char c)
 {
 	size_t	count;
 
